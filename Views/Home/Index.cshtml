@@ -1,0 +1,27 @@
+﻿@using NameGen.Models;
+@model NameGeneratorViewModel
+
+@{
+    ViewBag.Title = "Name Generator";
+}
+
+<div class="jumbotron">
+    <h1>Generate a name!</h1>
+    <p class="lead">Type some words into the box and get a name!</p>
+
+    @using (Html.BeginForm())
+    {
+        <div class="inputText">
+            @Html.TextBoxFor(model => model.InputText)
+        </div>
+            
+        <div class="btn btn-lg">
+            <button>Generate</button>
+        </div>
+    }
+    
+    @if (Model.Name != null && Model.Name != "")
+    {
+        <div class="name">@Model.Name</div>
+    }
+</div>
