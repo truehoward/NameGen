@@ -5,8 +5,6 @@ using System.Web;
 using System.Web.Mvc;
 using NameGen.Models;
 
-using NameGen.Models;
-
 namespace NameGen.Controllers
 {
     public class HomeController : Controller
@@ -25,7 +23,7 @@ namespace NameGen.Controllers
         public ActionResult Index(NameGeneratorViewModel nameGeneratorViewModel)
         {
             string[] inputWords = nameGeneratorViewModel.InputText.Split(' ');
-            nameGeneratorViewModel.Name = "test name " + inputWords[0] + " " + (new Random().Next()).ToString();
+            nameGeneratorViewModel.Name = nameGeneratorViewModel.AllFirstNames[(new Random().Next(nameGeneratorViewModel.AllFirstNames.Length))].Trim();
 
             return View(nameGeneratorViewModel);
         }
